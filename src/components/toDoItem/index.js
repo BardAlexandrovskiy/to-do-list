@@ -8,11 +8,18 @@ export default class ToDoItem extends React.Component {
     deleteToDo(id)
   }
 
+  handleClickCheckButton = () => {
+    const { id, checkToDo } = this.props
+    checkToDo(id)
+  }
+
   render() {
     const { value, check } = this.props
     return (
-      <ToDoItemContainer>
-        <CheckButton check={check}>✓</CheckButton>
+      <ToDoItemContainer check={check}>
+        <CheckButton check={check} onClick={this.handleClickCheckButton}>
+          ✓
+        </CheckButton>
         {value}
         <DeleteButton onClick={this.handleClickDeleteButton}>✖</DeleteButton>
       </ToDoItemContainer>

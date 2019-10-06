@@ -7,6 +7,7 @@ import {
   inputChangeValue,
   createNewToDo,
   deleteToDo,
+  checkToDo,
 } from '../../actions/index'
 
 class App extends React.Component {
@@ -21,8 +22,8 @@ class App extends React.Component {
       toDoList,
       createNewToDo,
       deleteToDo,
+      checkToDo,
     } = this.props
-    console.log(toDoList)
     return (
       <MainAppDiv>
         <H1>todos</H1>
@@ -41,6 +42,7 @@ class App extends React.Component {
                   check={element.check}
                   deleteToDo={deleteToDo}
                   id={element.id}
+                  checkToDo={checkToDo}
                 />
               )
             })}
@@ -64,6 +66,7 @@ const mapDispatchToProps = dispatch => {
     inputChangeValue: value => dispatch(inputChangeValue(value)),
     createNewToDo: value => dispatch(createNewToDo(value)),
     deleteToDo: id => dispatch(deleteToDo(id)),
+    checkToDo: id => dispatch(checkToDo(id)),
   }
 }
 

@@ -1,4 +1,4 @@
-import { CREATE_NEW_TO_DO, DELETE_TO_DO } from '../actions/index'
+import { CREATE_NEW_TO_DO, DELETE_TO_DO, CHECK_TO_DO } from '../actions/index'
 
 const initialState = JSON.parse(localStorage.getItem('todos')) || {
   toDoList: [],
@@ -7,7 +7,6 @@ const initialState = JSON.parse(localStorage.getItem('todos')) || {
 export function toDoReducer(state = initialState, action) {
   const { toDoList } = state
   const { data, type } = action
-  console.log(`action: ${action.data}`)
   switch (type) {
     case CREATE_NEW_TO_DO:
       return {
@@ -21,12 +20,16 @@ export function toDoReducer(state = initialState, action) {
     case DELETE_TO_DO:
       return {
         ...state,
-        toDoList: toDoList.filter(({ id }) => {
-          console.log(`element: ${id}`)
-          console.log(`data: ${data.id}`)
-          console
-          .log()
-          return id !== data.id
+        toDoList: toDoList.filter(({ id }) => id !== data.id),
+      }
+    case CHECK_TO_DO:
+      return {
+        ...state,
+        toDoList: toDoList.map(el => {
+          if (el.id === data.id) {
+            return { ...el, check: !el.check }
+          }
+          return el
         }),
       }
     default:
