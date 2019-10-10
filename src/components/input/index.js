@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, InputContainer } from './styles'
+import { Input, InputContainer, AllCompletedButton } from './styles'
 
 export default class InputCreateNewTask extends React.Component {
   handleChangeInput = e => {
@@ -16,10 +16,20 @@ export default class InputCreateNewTask extends React.Component {
     }
   }
 
+  handleClickCheckAllButton = () => {
+    const { checkAllToDo } = this.props
+    checkAllToDo()
+  }
+
   render() {
-    const { value } = this.props
+    const { value, toDoList } = this.props
     return (
       <InputContainer>
+        {toDoList.length ? (
+          <AllCompletedButton onClick={this.handleClickCheckAllButton}>
+            ❯
+          </AllCompletedButton>
+        ) : null}
         <Input
           placeholder="What needs to be done?"
           value={value}

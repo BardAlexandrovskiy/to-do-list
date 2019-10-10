@@ -1,4 +1,9 @@
-import { CREATE_NEW_TO_DO, DELETE_TO_DO, CHECK_TO_DO } from '../actions/index'
+import {
+  CREATE_NEW_TO_DO,
+  DELETE_TO_DO,
+  CHECK_TO_DO,
+  CHECK_ALL_TO_DO,
+} from '../actions/index'
 
 const initialState = JSON.parse(localStorage.getItem('todos')) || {
   toDoList: [],
@@ -30,6 +35,19 @@ export function toDoReducer(state = initialState, action) {
             return { ...el, check: !el.check }
           }
           return el
+        }),
+      }
+    case CHECK_ALL_TO_DO:
+      let check = false
+      toDoList.forEach(el => {
+        if (!el.check) {
+          check = true
+        }
+      })
+      return {
+        ...state,
+        toDoList: toDoList.map(el => {
+          return { ...el, check: check }
         }),
       }
     default:

@@ -10,6 +10,7 @@ export const ToDoItemContainer = styled.li`
   word-wrap: break-word;
   position: relative;
   transition: color 0.3s;
+  text-decoration: ${props => (props.check ? 'line-through' : 'none')};
 
   @media (max-width: 736px) {
     font-size: 21px;
@@ -31,6 +32,7 @@ export const CheckButton = styled.button`
   color: ${props => (props.check ? '#5dc2af' : 'transparent')};
   transition: border 0.3s, color 0.3s;
 `
+
 export const DeleteButton = styled.button`
   position: absolute;
   right: 10px;

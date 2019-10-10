@@ -3,11 +3,13 @@ import { MainAppDiv, H1, AppBodyDiv, ToDoList } from './styles'
 import { connect } from 'react-redux'
 import InputCreateNewTask from '../../components/input/index'
 import ToDoItem from '../../components/toDoItem/index'
+import Footer from '../../components/footer/index'
 import {
   inputChangeValue,
   createNewToDo,
   deleteToDo,
   checkToDo,
+  checkAllToDo,
 } from '../../actions/index'
 
 class App extends React.Component {
@@ -23,6 +25,7 @@ class App extends React.Component {
       createNewToDo,
       deleteToDo,
       checkToDo,
+      checkAllToDo,
     } = this.props
     return (
       <MainAppDiv>
@@ -32,6 +35,8 @@ class App extends React.Component {
             value={inputValue}
             inputChangeValue={inputChangeValue}
             createNewToDo={createNewToDo}
+            toDoList={toDoList}
+            checkAllToDo={checkAllToDo}
           />
           <ToDoList>
             {toDoList.map(element => {
@@ -54,7 +59,6 @@ class App extends React.Component {
 }
 
 const mapStateToProps = store => {
-  console.log(store)
   return {
     inputValue: store.input.value,
     toDoList: store.toDo.toDoList,
@@ -67,6 +71,7 @@ const mapDispatchToProps = dispatch => {
     createNewToDo: value => dispatch(createNewToDo(value)),
     deleteToDo: id => dispatch(deleteToDo(id)),
     checkToDo: id => dispatch(checkToDo(id)),
+    checkAllToDo: () => dispatch(checkAllToDo()),
   }
 }
 

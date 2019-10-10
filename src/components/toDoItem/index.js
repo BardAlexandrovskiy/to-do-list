@@ -4,7 +4,6 @@ import { ToDoItemContainer, CheckButton, DeleteButton } from './styles'
 export default class ToDoItem extends React.Component {
   handleClickDeleteButton = () => {
     const { id, deleteToDo } = this.props
-    console.log(`event: ${id}`)
     deleteToDo(id)
   }
 

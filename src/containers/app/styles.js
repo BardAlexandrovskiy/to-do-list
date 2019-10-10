@@ -19,6 +19,8 @@ export const H1 = styled.h1`
 
 export const AppBodyDiv = styled.div`
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  position: relative;
 `
 export const ToDoList = styled.ul`
   list-style-type: none;
