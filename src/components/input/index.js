@@ -1,14 +1,14 @@
 import React from 'react'
-import { Input, InputContainer, AllCompletedButton } from './styles'
+import { Input, Container, AllCompletedButton } from './styles'
 
 export default class InputCreateNewTask extends React.Component {
-  handleChangeInput = e => {
+  handleChangeInput = (e) => {
     const { inputChangeValue } = this.props
     const value = e.target.value
     inputChangeValue(value)
   }
 
-  handlePressInput = e => {
+  handlePressInput = (e) => {
     const { createNewToDo, value, inputChangeValue } = this.props
     if (e.keyCode === 13 && value.trim()) {
       createNewToDo(value)
@@ -24,7 +24,7 @@ export default class InputCreateNewTask extends React.Component {
   render() {
     const { value, toDoList } = this.props
     return (
-      <InputContainer>
+      <Container>
         {toDoList.length ? (
           <AllCompletedButton onClick={this.handleClickCheckAllButton}>
             ❯
@@ -36,7 +36,7 @@ export default class InputCreateNewTask extends React.Component {
           onChange={this.handleChangeInput}
           onKeyDown={this.handlePressInput}
         />
-      </InputContainer>
+      </Container>
     )
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ToDoItemContainer, CheckButton, DeleteButton } from './styles'
+import { Container, CheckButton, DeleteButton } from './styles'
 
 export default class ToDoItem extends React.Component {
   handleClickDeleteButton = () => {
@@ -15,13 +15,13 @@ export default class ToDoItem extends React.Component {
   render() {
     const { value, check } = this.props
     return (
-      <ToDoItemContainer check={check}>
+      <Container check={check}>
         <CheckButton check={check} onClick={this.handleClickCheckButton}>
           ✓
         </CheckButton>
         {value}
         <DeleteButton onClick={this.handleClickDeleteButton}>✖</DeleteButton>
-      </ToDoItemContainer>
+      </Container>
     )
   }
 }

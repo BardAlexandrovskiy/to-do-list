@@ -1,9 +1,8 @@
 import React from 'react'
-import { MainAppDiv, H1, AppBodyDiv, ToDoList } from './styles'
+import { FixContainer, Logo, MainContainer, ToDoList } from './styles'
 import { connect } from 'react-redux'
-import InputCreateNewTask from '../../components/input/index'
-import ToDoItem from '../../components/toDoItem/index'
-import Footer from '../../components/footer/index'
+import InputCreateNewTask from '../../components/Input'
+import ToDoItem from '../../components/ToDoItem'
 import {
   inputChangeValue,
   createNewToDo,
@@ -12,7 +11,7 @@ import {
   checkAllToDo,
 } from '../../actions/index'
 
-class App extends React.Component {
+class MainScreen extends React.Component {
   componentDidUpdate = () => {
     const { toDoList } = this.props
     localStorage.setItem('todos', JSON.stringify({ toDoList }))
@@ -28,9 +27,9 @@ class App extends React.Component {
       checkAllToDo,
     } = this.props
     return (
-      <MainAppDiv>
-        <H1>todos</H1>
-        <AppBodyDiv>
+      <FixContainer>
+        <Logo>todos</Logo>
+        <MainContainer>
           <InputCreateNewTask
             value={inputValue}
             inputChangeValue={inputChangeValue}
@@ -39,7 +38,7 @@ class App extends React.Component {
             checkAllToDo={checkAllToDo}
           />
           <ToDoList>
-            {toDoList.map(element => {
+            {toDoList.map((element) => {
               return (
                 <ToDoItem
                   value={element.value}
@@ -52,30 +51,27 @@ class App extends React.Component {
               )
             })}
           </ToDoList>
-        </AppBodyDiv>
-      </MainAppDiv>
+        </MainContainer>
+      </FixContainer>
     )
   }
 }
 
-const mapStateToProps = store => {
+const mapStateToProps = (store) => {
   return {
     inputValue: store.input.value,
     toDoList: store.toDo.toDoList,
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    inputChangeValue: value => dispatch(inputChangeValue(value)),
-    createNewToDo: value => dispatch(createNewToDo(value)),
-    deleteToDo: id => dispatch(deleteToDo(id)),
-    checkToDo: id => dispatch(checkToDo(id)),
+    inputChangeValue: (value) => dispatch(inputChangeValue(value)),
+    createNewToDo: (value) => dispatch(createNewToDo(value)),
+    deleteToDo: (id) => dispatch(deleteToDo(id)),
+    checkToDo: (id) => dispatch(checkToDo(id)),
     checkAllToDo: () => dispatch(checkAllToDo()),
   }
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

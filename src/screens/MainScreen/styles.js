@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const MainAppDiv = styled.div`
+export const FixContainer = styled.div`
   max-width: 550px;
   margin: 0 auto;
 `
-export const H1 = styled.h1`
+export const Logo = styled.h1`
   font-size: 100px;
   line-height: 100px;
   font-weight: 100;
@@ -17,7 +17,7 @@ export const H1 = styled.h1`
   }
 `
 
-export const AppBodyDiv = styled.div`
+export const MainContainer = styled.div`
   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.25);
   background-color: #fff;
   position: relative;

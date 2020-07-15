@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
 * {
@@ -15,3 +18,5 @@ body {
   background: #f5f5f5;
   min-width: 320px;
 }
+`
+export default GlobalStyle
