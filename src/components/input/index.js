@@ -1,7 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {
+  inputChangeValue,
+  createNewToDo,
+  checkAllToDo,
+} from '../../actions/index'
 import { Input, Container, AllCompletedButton } from './styles'
 
-export default class InputCreateNewTask extends React.Component {
+class InputCreateNewTask extends React.Component {
   handleChangeInput = (e) => {
     const { inputChangeValue } = this.props
     const value = e.target.value
@@ -40,3 +46,20 @@ export default class InputCreateNewTask extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (store) => {
+  return {
+    value: store.input.value,
+    toDoList: store.toDo.toDoList,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    inputChangeValue: (value) => dispatch(inputChangeValue(value)),
+    createNewToDo: (value) => dispatch(createNewToDo(value)),
+    checkAllToDo: () => dispatch(checkAllToDo()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputCreateNewTask)

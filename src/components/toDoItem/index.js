@@ -1,7 +1,9 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Container, CheckButton, DeleteButton } from './styles'
+import { deleteToDo, checkToDo } from '../../actions'
 
-export default class ToDoItem extends React.Component {
+class ToDoItem extends React.Component {
   handleClickDeleteButton = () => {
     const { id, deleteToDo } = this.props
     deleteToDo(id)
@@ -25,3 +27,18 @@ export default class ToDoItem extends React.Component {
     )
   }
 }
+
+const mapStateToProps = (store) => {
+  return {
+    toDoList: store.toDo.toDoList,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteToDo: (id) => dispatch(deleteToDo(id)),
+    checkToDo: (id) => dispatch(checkToDo(id)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoItem)
