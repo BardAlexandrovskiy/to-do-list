@@ -24,13 +24,14 @@
     "extends": [
       "airbnb",
       "react-app",
-      "prettier"
+      "plugin:prettier/recommended"
     ],
     "rules": {
       "jsx-quotes": [
         1,
         "prefer-double"
-      ]
+      ],
+      "react/jsx-filename-extension": 0
     },
     "plugins": [
       "prettier"

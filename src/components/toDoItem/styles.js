@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.li`
   padding: 16px 40px 16px 50px;
@@ -15,7 +15,7 @@ export const Container = styled.li`
   @media (max-width: 736px) {
     font-size: 21px;
   }
-`
+`;
 
 export const CheckButton = styled.button`
   width: 32px;
@@ -31,7 +31,7 @@ export const CheckButton = styled.button`
   transform: translateY(-50%);
   color: ${(props) => (props.check ? '#5dc2af' : 'transparent')};
   transition: border 0.3s, color 0.3s;
-`
+`;
 
 export const DeleteButton = styled.button`
   position: absolute;
@@ -44,4 +44,4 @@ export const DeleteButton = styled.button`
   font-size: 24px;
   color: #cc9a9a;
   cursor: pointer;
-`
+`;

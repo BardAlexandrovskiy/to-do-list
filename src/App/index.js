@@ -1,8 +1,8 @@
-import React from 'react'
-import MainScreen from '../screens/MainScreen'
-import { Provider } from 'react-redux'
-import { store } from '../store/configureStore'
-import GlobalStyle from './styles'
+import React from 'react';
+import MainScreen from '../screens/MainScreen';
+import { Provider } from 'react-redux';
+import { store } from '../store/configureStore';
+import GlobalStyle from './styles';
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <GlobalStyle />
       <MainScreen />
     </Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
-`
+`;
 
 export const Input = styled.input`
   width: 100%;
@@ -20,7 +20,7 @@ export const Input = styled.input`
   @media (max-width: 736px) {
     font-size: 21px;
   }
-`
+`;
 
 export const AllCompletedButton = styled.button`
   position: absolute;
@@ -32,4 +32,4 @@ export const AllCompletedButton = styled.button`
   left: 10px;
   line-height: 34px;
   color: rgba(77, 77, 77, 0.5);
-`
+`;
