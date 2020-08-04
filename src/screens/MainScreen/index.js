@@ -1,13 +1,13 @@
-import React from 'react';
-import { FixContainer, Logo, MainContainer, ToDoList } from './styles';
-import { connect } from 'react-redux';
-import InputCreateNewTask from '../../components/Input';
-import ToDoItem from '../../components/ToDoItem';
+import React from "react";
+import { FixContainer, Logo, MainContainer, ToDoList } from "./styles";
+import { connect } from "react-redux";
+import InputCreateNewTask from "../../components/Input";
+import ToDoItem from "../../components/ToDoItem";
 
 class MainScreen extends React.Component {
   componentDidUpdate = () => {
     const { toDoList } = this.props;
-    localStorage.setItem('todos', JSON.stringify({ toDoList }));
+    localStorage.setItem("todos", JSON.stringify({ toDoList }));
   };
   render() {
     const { toDoList } = this.props;

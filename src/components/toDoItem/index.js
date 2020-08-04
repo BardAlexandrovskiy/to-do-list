@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Container, CheckButton, DeleteButton } from './styles';
-import { deleteToDo, checkToDo } from '../../actions';
+import React from "react";
+import { connect } from "react-redux";
+import { Container, CheckButton, DeleteButton } from "./styles";
+import { deleteToDo, checkToDo } from "../../actions";
 
 class ToDoItem extends React.Component {
   handleClickDeleteButton = () => {

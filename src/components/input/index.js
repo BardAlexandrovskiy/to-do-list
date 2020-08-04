@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 import {
   inputChangeValue,
   createNewToDo,
   checkAllToDo,
-} from '../../actions/index';
-import { Input, Container, AllCompletedButton } from './styles';
+} from "../../actions/index";
+import { Input, Container, AllCompletedButton } from "./styles";
 
 class InputCreateNewTask extends React.Component {
   handleChangeInput = (e) => {
@@ -18,7 +18,7 @@ class InputCreateNewTask extends React.Component {
     const { createNewToDo, value, inputChangeValue } = this.props;
     if (e.keyCode === 13 && value.trim()) {
       createNewToDo(value);
-      inputChangeValue('');
+      inputChangeValue("");
     }
   };
 
