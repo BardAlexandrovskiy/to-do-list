@@ -29,13 +29,29 @@ class InputCreateNewTask extends React.Component {
 
   render() {
     const { value, toDoList } = this.props;
+
+    let checkNum = 0;
+    let opacityAllCompletedButton = false;
+
+    toDoList.forEach((el) => {
+      if (el.check) {
+        checkNum += 1;
+      }
+    });
+
+    if (checkNum === toDoList.length) {
+      opacityAllCompletedButton = true;
+    }
     return (
       <Container>
-        {toDoList.length ? (
-          <AllCompletedButton onClick={this.handleClickCheckAllButton}>
+        {!!toDoList.length && (
+          <AllCompletedButton
+            onClick={this.handleClickCheckAllButton}
+            opacity={opacityAllCompletedButton}
+          >
             ❯
           </AllCompletedButton>
-        ) : null}
+        )}
         <Input
           placeholder="What needs to be done?"
           value={value}

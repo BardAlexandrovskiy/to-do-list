@@ -32,4 +32,5 @@ export const AllCompletedButton = styled.button`
   left: 10px;
   line-height: 34px;
   color: rgba(77, 77, 77, 0.5);
+  opacity: ${(props) => (props.opacity ? "0.5" : "1")};
 `;

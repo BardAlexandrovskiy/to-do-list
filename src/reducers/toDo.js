@@ -3,9 +3,10 @@ import {
   DELETE_TO_DO,
   CHECK_TO_DO,
   CHECK_ALL_TO_DO,
-} from '../actions/index';
+  DELETE_COMPLETED,
+} from "../actions/index";
 
-const initialState = JSON.parse(localStorage.getItem('todos')) || {
+const initialState = JSON.parse(localStorage.getItem("todos")) || {
   toDoList: [],
 };
 
@@ -49,6 +50,11 @@ export function toDoReducer(state = initialState, action) {
         toDoList: toDoList.map((el) => {
           return { ...el, check: check };
         }),
+      };
+    case DELETE_COMPLETED:
+      return {
+        ...state,
+        toDoList: toDoList.filter(({ check }) => !check),
       };
     default:
       return state;

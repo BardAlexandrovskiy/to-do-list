@@ -3,6 +3,7 @@ import { FixContainer, Logo, MainContainer, ToDoList } from "./styles";
 import { connect } from "react-redux";
 import InputCreateNewTask from "../../components/Input";
 import ToDoItem from "../../components/ToDoItem";
+import Footer from "../../components/Footer";
 
 class MainScreen extends React.Component {
   componentDidUpdate = () => {
@@ -28,6 +29,7 @@ class MainScreen extends React.Component {
               );
             })}
           </ToDoList>
+          <Footer />
         </MainContainer>
       </FixContainer>
     );
