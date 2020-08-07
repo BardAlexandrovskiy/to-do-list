@@ -31,7 +31,7 @@ class InputCreateNewTask extends React.Component {
     const { value, toDoList } = this.props;
 
     let checkNum = 0;
-    let opacityAllCompletedButton = false;
+    let opacityAllCompletedButton = 0;
 
     toDoList.forEach((el) => {
       if (el.check) {
@@ -40,7 +40,7 @@ class InputCreateNewTask extends React.Component {
     });
 
     if (checkNum === toDoList.length) {
-      opacityAllCompletedButton = true;
+      opacityAllCompletedButton = 1;
     }
     return (
       <Container>
